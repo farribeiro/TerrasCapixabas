@@ -1,0 +1,113 @@
+-- INTRODUCCIÓN --------------------------
+
+🌴 Terras Capixabas - El Mod Definitivo de Simulación de Vida Brasileña para Luanti
+🎯 ¿Qué Hace Especial a Este Mod?
+Terras Capixabas no es solo otro mod - ¡es una experiencia cultural brasileña completa traída a la vida en Luanti! Olvídate de los mods genéricos de fantasía; esta es una representación vibrante y viva de la vida costera de Espírito Santo.
+
+📊 Mod en Resumen:
+📁 1,488 archivos de pura atmósfera brasileña
+
+🎵 5,026 KB de sonidos auténticos (ritmos de samba, vendedores callejeros, pájaros tropicales)
+
+🖼️ 2,248 KB de texturas hechas a mano
+
+🎭 63 scripts Lua impulsando NPCs inteligentes y sistemas
+
+🚗 20 vehículos únicos de la clásica cultura automotriz brasileña
+
+🌟 Características Únicas que lo Diferencian:
+🏝️ Ambiente Brasileño Auténtico:
+Ecosistemas costeros con manglares, cocoteros y flora tropical apropiados
+
+Arquitectura brasileña real - desde casas coloniales hasta propiedades modernas frente al mar
+
+Comidas y bebidas tradicionales - pastel, pão de queijo, caipirinha, ¡y mucho más!
+
+👥 Sistema de NPCs Vivos y que Respiran:
+100+ NPCs únicos con personalidades brasileñas
+
+Sistema de comportamiento inteligente - NPCs deambulan, socializan, siguen rutinas
+
+Personajes del folclore - Cuca, Saci, Curupira (criaturas míticas brasileñas)
+
+Vendedores callejeros - Vendedores de picolé, vendedores de palomitas con llamadas sonoras auténticas
+
+🚗 Cultura Automotriz Brasileña:
+Autos clásicos: Fusca, Kombi, Brasília, Veraneio
+
+Vehículos de trabajo: Bulldozer, camiones volquete, apisonadoras
+
+Transporte público: Autobuses brasileños auténticos
+
+Vehículos especiales: Carro alegórico de Carnaval, platillo volador (¡sí, en serio!)
+
+🏠 Espacios de Vida Completos:
+Sistema de mobiliario detallado con electrodomésticos funcionales
+
+Plomería funcional - duchas, lavabos, inodoros
+
+Cocinas realistas con estufas, refrigeradores, lavadoras
+
+Sistemas de entretenimiento - TVs antiguas, radios, máquinas arcade
+
+🎨 Excelencia Técnica:
+Arquitectura de código limpia con 4,492 líneas de Lua eficiente
+
+Gestión inteligente de dependencias - sin dependencias circulares
+
+Estructura de archivos optimizada - carpetas bien organizadas
+
+Sistema profesional de sprites - 45+ poses y animaciones de NPCs
+
+🎮 Experiencia de Juego:
+Ciclos dinámicos día/noche con comportamientos apropiados de NPCs
+
+Mundo interactivo - siéntate en sillas, acuéstate en camas, usa electrodomésticos
+
+Ecosistema animal - colibríes, cangrejos, gaviotas, luciérnagas
+
+Sistema de construcción - construye casas brasileñas auténticas
+
+Objetos callejeros - cabinas telefónicas, semáforos, bancos de parque
+
+🛠️ Aspectos Técnicos Destacados:
+text
+📈 Calidad del Código: 63 archivos Lua (348 KB total)
+🎭 Sistema de NPCs: 9 archivos principales con IA avanzada
+🚗 Vehículos: 20 implementaciones únicas  
+🏠 Mobiliario: 1,538 KB de objetos interactivos
+🎵 Audio: 50+ sonidos brasileños auténticos
+🎯 ¿Por Qué Este Mod se Destaca?
+Autenticidad cultural - Hecho por brasileños, para todos
+
+Pulido técnico - Código limpio, sin fallos, rendimiento optimizado
+
+Mundo vivo - Los NPCs se sienten vivos con rutinas e interacciones
+
+Fidelidad visual - Modelos 3D y texturas de alta calidad
+
+Inmersión auditiva - Paisaje sonoro brasileño auténtico
+
+🌐 Perfecto Para:
+Jugadores que desean una simulación de vida realista
+
+Jugadores brasileños que sienten nostalgia en otros juegos
+
+Modders que estudian sistemas avanzados de Lua/NPCs
+
+Cualquiera cansado de mods genéricos de fantasía/medieval
+
+🇧🇷 ¡Terras Capixabas no es solo un mod - es un portal a la vida costera brasileña!
+
+Experimenta los sonidos de la samba, el sabor del agua de coco fresca y la calidez de la hospitalidad brasileña - todo dentro de Luanti.
+
+-- TIERRAS CAPIXABAS --- Instalación y uso ------------------
+
+Coloque la carpeta Terras Capixabas dentro de la carpeta mods de Luanti (si no existe la carpeta mods, cree una dentro del directorio de Luanti)
+Coloque la carpeta Vila Capixaba dentro de la carpeta worlds de Luanti
+
+Si desea obtener algo desde la ventana de chat, presione T y use:
+ /give terras_capixabas:nombre_del_item
+
+El mundo Vila Capixaba es un mapa tropical que muestra todo lo que el mod ofrece.
+¡Es una aldea en constante crecimiento, destinada a llenarse de vida y acontecimientos!

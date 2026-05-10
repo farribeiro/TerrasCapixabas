@@ -1,0 +1,178 @@
+local vector_add, vector_multiply, vector_distance = vector.add, vector.multiply, vector.distance
+local math_sin, math_cos, math_rad, math_abs, math_floor = math.sin, math.cos, math.rad, math.abs, math.floor
+local core_get_node, core_sound_play, core_sound_stop = core.get_node, core.sound_play, core.sound_stop
+
+-- Scania Entity
+core.register_entity("terras_capixabas:vh_scania", {
+    initial_properties = {
+        visual = "mesh", 
+        mesh = "scania.glb", 
+        textures = {"scania.png"},
+        visual_size = {x=1, y=1}, 
+        physical = true, 
+        collide_with_objects = true, -- Changed to true to help with stability
+        -- FIXED: Higher collision box (0.0 to 1.5) so it doesn't sink/tilt into floor
+        collisionbox = {-0.5, 0.0, -0.5, 0.5, 1.5, 0.5},
+        stepheight = 0.6, 
+        backface_culling = false
+    },
+
+    _driver = nil, _speed = 0, _acceleration = 0, _max_speed = 15,
+    _sound_handle = nil, _idle_sound_handle = nil, _current_anim = "", _is_driving = false,
+
+    detach_driver = function(self)
+        if not self._driver then return end
+        local driver = self._driver
+        local name = driver:get_player_name()
+        
+        driver:set_detach()
+        driver:set_eye_offset({x=0, y=0, z=0}, {x=0, y=0, z=0})
+        
+        if player_api and player_api.player_attached then
+            player_api.player_attached[name] = false
+            player_api.set_animation(driver, "stand", 30, false)
+        end
+
+        self._driver = nil
+        self._is_driving = false
+        self._speed = 0
+        
+        if self._sound_handle then core_sound_stop(self._sound_handle) self._sound_handle = nil end
+        if self._idle_sound_handle then core_sound_stop(self._idle_sound_handle) self._idle_sound_handle = nil end
+    end,
+
+    on_rightclick = function(self, clicker)
+        if not clicker or not clicker:is_player() then return end
+
+        if not self._driver then
+            if vector_distance(clicker:get_pos(), self.object:get_pos()) > 3 then return end
+
+            self._driver = clicker
+            self._is_driving = true
+            local name = clicker:get_player_name()
+
+            clicker:set_attach(self.object, "", {x = 0, y = 22, z = 0}, {x = 0, y = 0, z = 0})
+            clicker:set_eye_offset({x=0, y=23, z=0}, {x=0, y=22, z=-22})
+            
+            if player_api and player_api.player_attached then
+                player_api.player_attached[name] = true
+                player_api.set_animation(clicker, "sit", 30, false)
+            end
+
+            self._idle_sound_handle = core_sound_play("kombi_idle", {
+                object = self.object, loop = true, gain = 0.5, max_hear_distance = 16
+            })
+        else
+            if self._driver ~= clicker then return end
+            self:detach_driver()
+        end
+    end,
+
+    on_step = function(self, dtime)
+        -- Constant Gravity (Matches Veraneio logic)
+        self.object:set_acceleration({x = 0, y = -9.81, z = 0})
+
+        if not self._is_driving or not self._driver or not self._driver:is_player() then
+            -- Stop horizontal movement if no driver, but keep falling velocity
+            local v = self.object:get_velocity()
+            self.object:set_velocity({x = 0, y = v.y, z = 0})
+            
+            if self._current_anim ~= "idle" then
+                self.object:set_animation({x = 0, y = 0.4}, 1, 0)
+                self._current_anim = "idle"
+            end
+            return
+        end
+
+        local player = self._driver
+        local ctrl = player:get_player_control()
+        local yaw = self.object:get_yaw()
+
+        if ctrl.jump then
+            self:detach_driver()
+            return
+        end
+
+        -- Acceleration
+        local accel = 0
+        if ctrl.up then accel = 1 elseif ctrl.down then accel = -1 end
+        
+        if accel ~= 0 then
+            self._speed = self._speed + (accel * 0.2)
+        else
+            if self._speed > 0 then self._speed = math.max(0, self._speed - 0.1)
+            elseif self._speed < 0 then self._speed = math.min(0, self._speed + 0.1) end
+        end
+
+        -- Clamp Speed
+        if self._speed > self._max_speed then self._speed = self._max_speed
+        elseif self._speed < -self._max_speed then self._speed = -self._max_speed end
+
+        -- Steering
+        if ctrl.left then yaw = yaw + math_rad(2)
+        elseif ctrl.right then yaw = yaw - math_rad(2) end
+        self.object:set_yaw(yaw)
+
+        -- Apply Velocity
+        local direction = {x = -math_sin(yaw), y = 0, z = math_cos(yaw)}
+        local velocity = vector_multiply(direction, self._speed)
+        velocity.y = self.object:get_velocity().y -- Retain falling speed
+        self.object:set_velocity(velocity)
+
+        -- Sound Logic
+        if math_abs(self._speed) > 0.1 then
+            if self._idle_sound_handle then core_sound_stop(self._idle_sound_handle) self._idle_sound_handle = nil end
+            if not self._sound_handle then
+                self._sound_handle = core_sound_play("kombi", {object = self.object, loop = true, gain = 0.7})
+            end
+        else
+            if self._sound_handle then core_sound_stop(self._sound_handle) self._sound_handle = nil end
+            if not self._idle_sound_handle then
+                self._idle_sound_handle = core_sound_play("kombi_idle", {object = self.object, loop = true, gain = 0.5})
+            end
+        end
+
+        -- Animation Logic
+        if self._speed > 0 then
+            if self._current_anim ~= "forward" then 
+                self.object:set_animation({x=2, y=1}, 1, 0)
+                self._current_anim = "forward" 
+            end
+        elseif self._speed < 0 then
+            if self._current_anim ~= "reverse" then 
+                self.object:set_animation({x=2, y=1}, -1, 0)
+                self._current_anim = "reverse" 
+            end
+        else
+            if self._current_anim ~= "idle" then 
+                self.object:set_animation({x=0, y=0.4}, 1, 0)
+                self._current_anim = "idle" 
+            end
+        end
+    end,
+
+    on_detach_child = function(self, child)
+        if child == self._driver then self:detach_driver() end
+    end
+})
+
+-- Scania Spawn Egg
+core.register_craftitem("terras_capixabas:vh_scania_spawn_egg", {
+    description = "Scania",
+    inventory_image = "scania_inv.png",
+    on_place = function(itemstack, placer, pointed_thing)
+        if pointed_thing.type ~= "node" then return itemstack end
+        
+        local pos = pointed_thing.above
+        pos.y = pos.y + 0.2 -- Spawn slightly higher to ensure gravity takes over
+        
+        local obj = core.add_entity(pos, "terras_capixabas:vh_scania")
+        if obj and placer then
+            obj:set_yaw(placer:get_look_horizontal())
+        end
+        if not core.is_creative_enabled(placer:get_player_name()) then
+            itemstack:take_item()
+        end
+        return itemstack
+    end,
+})

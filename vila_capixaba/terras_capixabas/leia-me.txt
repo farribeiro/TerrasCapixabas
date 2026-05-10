@@ -1,0 +1,120 @@
+-- INTRODUÇÃO:
+
+🌴 Terras Capixabas - O Mod Definitivo de Simulação da Vida Brasileira para Luanti
+
+🎯 O Que Torna Este Mod Especial?
+
+Terras Capixabas não é apenas mais um mod - é uma experiência cultural brasileira completa trazida à vida no Luanti! Esqueça mods genéricos de fantasia; esta é uma representação vibrante e viva da vida costeira do Espírito Santo.
+
+📊 Mod em Resumo:
+•	📁 1.488 arquivos de pura atmosfera brasileira
+•	🎵 5.026 KB de sons autênticos (ritmos de samba, vendedores ambulantes, pássaros tropicais)
+•	🖼️ 2.248 KB de texturas artesanais
+•	🎭 63 scripts Lua alimentando NPCs inteligentes e sistemas
+•	🚗 20 veículos únicos da clássica cultura automotiva brasileira
+
+🌟 Funcionalidades Únicas que o Diferem:
+
+🏝️ Ambiente Brasileiro Autêntico:
+•	Ecossistemas costeiros com manguezais, coqueiros e flora tropical adequados
+•	Arquitetura brasileira real - desde casas coloniais até propriedades modernas à beira-mar
+•	Comidas e bebidas tradicionais - pastel, pão de queijo, caipirinha e muito mais!
+
+👥 Sistema de NPCs Vivos e Respirantes:
+•	100+ NPCs únicos com personalidades brasileiras
+•	Sistema de comportamento inteligente - NPCs vagueiam, socializam, seguem rotinas
+•	Personagens do folclore - Cuca, Saci, Curupira (criaturas míticas brasileiras)
+•	Vendedores ambulantes - Picolé, pipoqueiros com chamados sonoros autênticos
+
+🚗 Cultura Automotiva Brasileira:
+•	Carros clássicos: Fusca, Kombi, Brasília, Veraneio
+•	Veículos de trabalho: Trator de esteira, caminhões basculantes, rolo compressor
+•	Transporte público: Ônibus brasileiros autênticos
+•	Veículos especiais: Carro alegórico de Carnaval, disco voador (sim, sério!)
+
+🏠 Espaços de Vida Completos:
+•	Sistema de mobília detalhado com eletrodomésticos funcionais
+•	Encanamento funcional - chuveiros, pias, privadas
+•	Cozinhas realistas com fogões, geladeiras, máquinas de lavar
+•	Sistemas de entretenimento - TVs antigas, rádios, máquinas de fliperama
+
+🎨 Excelência Técnica:
+•	Arquitetura de código limpa com 4.492 linhas de Lua eficiente
+•	Gerenciamento inteligente de dependências - sem dependências circulares
+•	Estrutura de arquivos otimizada - pastas bem organizadas
+•	Sistema profissional de sprites - 45+ poses e animações de NPCs
+
+🎮 Experiência de Jogo:
+•	Ciclos dinâmicos dia/noite com comportamentos apropriados de NPCs
+•	Mundo interativo - sente em cadeiras, deite em camas, use eletrodomésticos
+•	Ecossistema animal - beija-flores, caranguejos, gaivotas, vagalumes
+•	Sistema de construção - construa casas brasileiras autênticas
+•	Objetos de rua - orelhões, semáforos, bancos de praça
+
+🛠️ Destaques Técnicos:
+text
+📈 Qualidade do Código: 63 arquivos Lua (348 KB total)
+🎭 Sistema de NPCs: 9 arquivos principais com IA avançada
+🚗 Veículos: 20 implementações únicas  
+🏠 Mobília: 1.538 KB de objetos interativos
+🎵 Áudio: 50+ sons brasileiros autênticos
+
+🎯 Por Que Este Mod Se Diferencia:
+1.	Autenticidade cultural - Feito por brasileiros, para todos
+2.	Polimento técnico - Código limpo, sem crashes, desempenho otimizado
+3.	Mundo vivo - NPCs parecem reais com rotinas e interações
+4.	Fidelidade visual - Modelos 3D e texturas de alta qualidade
+5.	Imersão sonora - Paisagem sonora brasileira autêntica
+
+🌐 Perfeito Para:
+•	Jogadores que desejam uma simulação de vida realista
+•	Jogadores brasileiros com saudade de casa em outros jogos
+•	Modders estudando sistemas avançados de Lua/NPCs
+•	Qualquer pessoa cansada de mods genéricos de fantasia/medieval
+________________________________________
+🇧🇷 Terras Capixabas não é apenas um mod - é um portal para a vida costeira brasileira!
+Experimente os sons do samba, o sabor da água de coco fresca e o calor da hospitalidade brasileira - tudo dentro do Luanti.
+
+
+-- TERRAS CAPIXABAS --- Instalação e uso ------------------
+
+O Mod depende  deste outro mod chamado mobs_redo, senão n vai funcionar.
+baixar o mod aqui: https://content.luanti.org/packages/TenPlus1/mobs/
+
+Depois q vc extrair o mod terras e o mod mobs_redo, 
+Coloque a pasta Terras Capixabas e o mobs_redo dentro da pasta mods do Luanti (se não existir a pasta mods, crie uma dentro do diretório do Luanti)
+Coloque a pasta Vila Capixaba dentro da pasta worlds do Luanti (se não existir a pasta mods, crie uma dentro do diretório do Luanti)
+
+Quando aparecer o menu escolhe Vila Capixaba e aperte o botão Selecionar Mods e escolha Terras Capixabas!
+
+
+Se quiser jogar como eu jogo (modo criativo com todas as trapaças ligadas):
+Entrando na Vila aperte T e digite /grantme all
+Depois disto a letra L pra voar e a K pra voar rápido.
+A letra I é p abrir o inventário.
+ 
+Se desejar obter algo pelo chat, pressione T e use:
+ /give terras_capixabas:nome_do_item
+
+O mundo Vila Capixaba é um mapa tropical que demonstra tudo o que o mod oferece!
+É uma vila em constante crescimento, destinada a ficar cheia de vida e acontecimentos
+
+Agora Vc pode cozinhar no jogo!
+
+vá até um fogão moderno ou fogão de lenha e interaja com ele para acender.
+Uma vez aceso, interaja novamente para abrir o menu de cozimento.
+coloque os igredientes abaixo nos espaços da tela para a comida desejada e aperte o botão Cozinhar.
+Sua comida ficará pronta em 3 segundos!
+
+arroz + feijao ➡️ arroz_com_feijao
+batata ➡️ batata_frita
+camarao ➡️ churrasquim_camarao
+feijao + farinha + ovo ➡️ feijao_tropeiro
+feijao + carne_porco ➡️ feijoada
+pao + salsicha ➡️ cachorro_quente 
+peixe + oleo + tempero_verde ➡️ moqueca_capixaba
+peixe + oleo + tomate ➡️ peroa_frito
+ovo ➡️ ovo_frito
+caranguejo_vivo ➡️ pua_de_caranguejo
+peixe + oleo + batata ➡️ torta_de_bacalhau 
+macarrao + agua + tomate ➡️ macarronada
